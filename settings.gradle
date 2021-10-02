@@ -1,0 +1,5 @@
+// mesh demo app
+include ':TelinkBleMeshDemo'
+
+// mesh library
+include ':TelinkBleMeshLib'
