@@ -20,7 +20,7 @@ jobs:
       # Step 2: Clone the additional repository
       - name: Clone TelinkBleMeshLib Repository
         run: |
-          git clone https://github.com/thanhtunguet/TelinkBleMeshLib.git
+          git clone --single-branch --branch v4 https://github.com/thanhtunguet/TelinkBleMeshLib.git
 
       # Step 4: Set up JDK
       - name: Set up JDK 17
