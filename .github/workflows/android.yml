@@ -3,7 +3,7 @@ name: Build Android App
 on:
   push:
     branches:
-      - main  # Set your branch name here if it's different
+      - v4  # Set your branch name here if it's different
 
 jobs:
   build:
