@@ -1,0 +1,62 @@
+name: Build Android App
+
+on:
+  push:
+    branches:
+      - main  # Set your branch name here if it's different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: TelinkBleMesh
+
+      # Step 2: Clone the additional repository
+      - name: Clone TelinkBleMeshLib Repository
+        run: |
+          git clone https://github.com/thanhtunguet/TelinkBleMeshLib.git
+
+      # Step 3: Move the TelinkBleMeshLib folder
+      - name: Move TelinkBleMeshLib
+        run: |
+          mv TelinkBleMeshLib ../
+
+      # Step 4: Set up JDK
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      # Step 5: Cache Gradle dependencies
+      - name: Cache Gradle
+        uses: actions/cache@v3
+        with:
+          path: ~/.gradle/caches
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/build.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # Step 6: Build the Android project
+      - name: Build Release APK
+        run: |
+          cd TelinkBleMesh
+          ./gradlew assembleRelease
+
+      # Step 7: Remove TelinkBleMeshLib folder
+      - name: Remove TelinkBleMeshLib
+        run: |
+          rm -rf ../TelinkBleMeshLib
+
+      # Step 8: Upload APK artifact
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: android-release-apk
+          path: TelinkBleMesh/app/build/outputs/apk/release/app-release.apk
