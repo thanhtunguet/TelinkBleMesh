@@ -1,0 +1,14 @@
+// mesh demo app
+include ':TelinkBleMeshDemo'
+
+// mesh library
+include ':TelinkBleMeshLib'
+project(':TelinkBleMeshLib').projectDir = new File(rootDir, '../TelinkBleMeshLib')
+
+// file selector
+//include ':TelinkFileSelector'
+
+// bluetooth library
+//include ':TelinkBleLib'
+
+//include ':TelinkBleTest'

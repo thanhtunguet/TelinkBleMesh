@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.telink.ble.mesh.demo">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <!--QRCode-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--  download/upload  -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!--    android 12   -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+
+
+    <application
+        android:name="com.telink.ble.mesh.TelinkMeshApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="m">
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.SplashActivity"
+            android:exported="true"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.CmdActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.MainActivity"
+            android:launchMode="singleTask"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.DeviceProvisionActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.DeviceAutoProvisionActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.DeviceSettingActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.DeviceOtaActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.LogActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.KeyBindActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.ModelSettingActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.GroupSettingActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.ColorPanelActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.SchedulerSettingActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.SchedulerListActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.SceneSettingActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.SceneListActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.SettingsActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.ShareActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.TipsActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.JsonPreviewActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.DebugActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.LpnSettingActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.RemoteProvisionActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.MeshOTAActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.FastProvisionActivity"
+            android:exported="true"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.qrcode.QRCodeShareActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.qrcode.QRCodeScanActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.file.FileSelectActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.file.FileSearchActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.CompositionDataActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.OobListActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.OOBEditActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.test.OnOffTestActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.test.ConnectionTestActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.NodeNetKeyActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.MeshInfoActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.SubnetBridgeActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.BridgingTableAddActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.test.ResponseTestActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.test.IntervalTestActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.FUActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.FUDeviceSelectActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.CertListActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.CertDetailActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.RemoteControlSettingActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.DeviceConfigActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.DeviceConfigSettingActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.CmdTestActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name="com.telink.ble.mesh.ui.DirectForwardingActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.DirectForwardingListActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.DeviceSelectActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.DirectToggleListActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.cdtp.CdtpExportToPhoneActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.cdtp.CdtpImportActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.cdtp.CdtpServerListActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.cdtp.CdtpExportToGatewayActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.NetworkListActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.ShareImportActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.ShareExportActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name="com.telink.ble.mesh.ui.PrivateBeaconSettingActivity"
+
+            android:windowSoftInputMode="stateAlwaysHidden"
+            tools:ignore="LockedOrientationActivity" />
+    </application>
+
+
+</manifest>
